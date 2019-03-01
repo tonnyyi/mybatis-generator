@@ -24,8 +24,6 @@ import org.slf4j.LoggerFactory;
  * 注释生成插件
  * 使用数据库列注释作为对象属性的注释
  *
- * 注意: 表注释拿不到, 所以需要在生成的实体类上再手动写上注释
- *
  * @author <a href=mailto:ktyi@iflytek.com>伊开堂</a>
  * @date 2019/2/28 14:10
  */

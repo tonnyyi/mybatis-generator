@@ -30,6 +30,8 @@
                         connectionURL="jdbc:mysql://localhost:3306/test"
                         userId="root"
                         password="root">
+            <!-- 设置 useInformationSchema 属性为 true -->
+            <property name="useInformationSchema" value="true"/>
         </jdbcConnection>
 
         <javaTypeResolver>
