@@ -15,7 +15,6 @@ import org.mybatis.generator.api.dom.java.InnerEnum;
 import org.mybatis.generator.api.dom.java.JavaElement;
 import org.mybatis.generator.api.dom.java.Method;
 import org.mybatis.generator.api.dom.java.TopLevelClass;
-import org.mybatis.generator.api.dom.xml.TextElement;
 import org.mybatis.generator.api.dom.xml.XmlElement;
 import org.mybatis.generator.config.Context;
 import org.mybatis.generator.internal.DefaultCommentGenerator;
@@ -91,7 +90,8 @@ public class CommentPlugin extends PluginAdapter {
 
         @Override
         public void addComment(XmlElement xmlElement) {
-            xmlElement.addElement(new TextElement("<!-- addComment xmlElement -->"));
+            // mapper xml sql doc
+            // xmlElement.addElement(new TextElement("<!-- addComment xmlElement -->"));
             // super.addComment(xmlElement);
         }
 
