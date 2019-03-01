@@ -22,6 +22,8 @@ mvn mybatis-generator:generate
 # 扩展方式
 新增一个类, 继承`PluginAdaper`, 然后在`generatorConfig.xml`增加插件配置, 写上全路径
 
+**注意: **: 每次改动插件实现代码后都需要先 install 一次, 否则在执行`mvn mybatis-generator:generate`是看不到修改后插件效果的
+
 插件的完整生命周期参考官方文档: http://www.mybatis.org/generator/reference/pluggingIn.html
 
 ## 参考

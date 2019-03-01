@@ -1,5 +1,7 @@
 package com.tonny.codemachine.plugins;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import com.tonny.codemachine.support.BeanUtils;
@@ -56,7 +58,7 @@ public class CommentPlugin extends PluginAdapter {
         @Override
         public void addFieldComment(Field field, IntrospectedTable introspectedTable) {
             // example field
-            addComment(field, "addFieldComment");
+            // addComment(field, "addFieldComment");
         }
 
         private void addComment(JavaElement element, String... lines) {
@@ -100,55 +102,48 @@ public class CommentPlugin extends PluginAdapter {
 
         @Override
         public void addClassComment(InnerClass innerClass, IntrospectedTable introspectedTable) {
-            innerClass.addJavaDocLine("/**");
-            innerClass.addJavaDocLine(" * addClassComment");
-            innerClass.addJavaDocLine(" */");
+            // example.GeneratedCriteria&Criterion
             // super.addClassComment(innerClass, introspectedTable);
         }
 
         @Override
         public void addClassComment(InnerClass innerClass, IntrospectedTable introspectedTable, boolean markAsDoNotDelete) {
-            innerClass.addJavaDocLine("/**");
-            innerClass.addJavaDocLine("* addClassComment markAsDoNotDelete");
-            innerClass.addJavaDocLine("*/");
+            // example.Criteria javadoc
             // super.addClassComment(innerClass, introspectedTable, markAsDoNotDelete);
         }
 
         @Override
         public void addModelClassComment(TopLevelClass topLevelClass, IntrospectedTable introspectedTable) {
-            addComment(topLevelClass, introspectedTable.getRemarks());
+            // entity class javadoc
+            addComment(topLevelClass, introspectedTable.getRemarks(), "", "@author ", "@date " + nowStr());
         }
 
         @Override
         public void addEnumComment(InnerEnum innerEnum, IntrospectedTable introspectedTable) {
-            innerEnum.addJavaDocLine("/**");
-            innerEnum.addJavaDocLine("* addEnumComment");
-            innerEnum.addJavaDocLine("*/");
             // super.addEnumComment(innerEnum, introspectedTable);
         }
 
         @Override
         public void addGeneralMethodComment(Method method, IntrospectedTable introspectedTable) {
-            method.addJavaDocLine("/**");
-            method.addJavaDocLine("* addGeneralMethodComment");
-            method.addJavaDocLine("*/");
+            // mapper&example method
             // super.addGeneralMethodComment(method, introspectedTable);
         }
 
         @Override
         public void addGetterComment(Method method, IntrospectedTable introspectedTable, IntrospectedColumn introspectedColumn) {
-            method.addJavaDocLine("/**");
-            method.addJavaDocLine("* addGetterComment");
-            method.addJavaDocLine("*/");
+            // entity get method
             // super.addGetterComment(method, introspectedTable, introspectedColumn);
         }
 
         @Override
         public void addSetterComment(Method method, IntrospectedTable introspectedTable, IntrospectedColumn introspectedColumn) {
-            method.addJavaDocLine("/**");
-            method.addJavaDocLine("* addSetterComment");
-            method.addJavaDocLine("*/");
+            // entity set method
             // super.addSetterComment(method, introspectedTable, introspectedColumn);
         }
+    }
+
+    private static String nowStr() {
+        SimpleDateFormat dateFormatter = new SimpleDateFormat("yyyy/MM/dd");
+        return dateFormatter.format(new Date());
     }
 }
